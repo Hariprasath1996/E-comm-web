@@ -12,7 +12,7 @@ const products = require('./routes/product')
 const orders = require('./routes/order')
 
 // prefix url state
-app.use('/api/v1/ ',products );
+app.use('/api/v1/',products);
 app.use('/api/v1',orders)
 
 
