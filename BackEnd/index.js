@@ -7,10 +7,17 @@ const path=require('path')
 // here dirname is the folder path BackEnd
 dotenv.config({path: path.join(__dirname,'config','config.env') });
 
+// routes
+const products = require('./routes/product')
+const orders = require('./routes/order')
 
-app.listen (8000,()=>{
+// prefix url state
+app.use('/api/v1/ ',products );
+app.use('/api/v1',orders)
+
+
+app.listen (process.env.PORT,()=>{
     console.log(
-        "server listening to the port 8000 in production"
+        `server listening to the port ${process.env.PORT} in ${process.env.NODE_ENV}`
     );
 })
-//  install env package 
